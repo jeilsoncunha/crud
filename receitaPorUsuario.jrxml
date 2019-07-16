@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="receitaPorUsuario" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1e845944-6dd5-4cf5-b16c-7ed213b12397">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[select
+ REC.descricao,valor,datareceita,
+USU.idusuario,nome,cpf,telefone
+from receita as REC
+inner join usuario as USU
+on( USU.idusuario = REC.idusuario);]]>
+	</queryString>
+	<field name="descricao" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="valor" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="datareceita" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="idusuario" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nome" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cpf" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="telefone" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<group name="idusuario">
+		<groupExpression><![CDATA[$F{idusuario}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement positionType="Float" x="69" y="0" width="457" height="79" uuid="23312a6a-b45b-4aa6-8998-bed50347b787"/>
+				<textElement>
+					<font size="48"/>
+				</textElement>
+				<text><![CDATA[RECEITA USUARIO]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement x="182" y="0" width="220" height="35" uuid="e0e8701b-b2ad-4c8d-92f7-c8bd344b8041"/>
+				<textElement>
+					<font size="24"/>
+				</textElement>
+				<text><![CDATA[Receita por usuario ]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement x="15" y="2" width="100" height="20" uuid="d6917cde-1f5d-42d5-82ac-b6e723979930"/>
+				<text><![CDATA[nome]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="134" y="2" width="48" height="20" uuid="572f7bc4-4ddc-4651-9661-cb5eae53e0c0"/>
+				<text><![CDATA[cpf]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="202" y="2" width="100" height="20" uuid="1505b606-f6f9-481d-8b40-9903db0acfc8"/>
+				<text><![CDATA[telefone]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="277" y="0" width="40" height="20" uuid="2ff39046-be93-4a14-8a6e-a3c58b430c55"/>
+				<text><![CDATA[valor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="324" y="2" width="67" height="20" uuid="a7ac7924-8d47-476a-acb5-822efd84524f"/>
+				<text><![CDATA[datareceita]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="402" y="2" width="153" height="20" uuid="07e42a4d-bded-4f6a-8b76-53d1b7dec4f6"/>
+				<text><![CDATA[descricao]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<textField>
+				<reportElement x="15" y="10" width="100" height="20" uuid="ce60336f-7c28-4d0f-b7c6-667256c1dcfa"/>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="134" y="10" width="48" height="20" uuid="0fea3fe8-2a4f-4eca-9d04-38fec5838b6b"/>
+				<textFieldExpression><![CDATA[$F{cpf}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="202" y="10" width="64" height="20" uuid="363b79b9-3dc2-4b9c-aec0-0f5a40932183"/>
+				<textFieldExpression><![CDATA[$F{telefone}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="402" y="10" width="153" height="20" uuid="16c9038a-534e-45e0-881c-4a2a38990543"/>
+				<textFieldExpression><![CDATA[$F{descricao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="277" y="10" width="62" height="20" uuid="4b1f0251-68d8-4d4a-b3ef-bb404dcf1a7c"/>
+				<textFieldExpression><![CDATA[$F{valor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="324" y="10" width="78" height="20" uuid="490cf5fe-cd90-482a-94d9-95691f7f3934"/>
+				<textFieldExpression><![CDATA[$F{datareceita}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="459" y="34" width="100" height="20" uuid="9da3136c-8c7a-43dc-b8b6-80ebaec8d0f6"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
